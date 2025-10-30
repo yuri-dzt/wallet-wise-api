@@ -7,7 +7,7 @@ import { IHashService } from "../../../../contracts/services/hash";
 import { IAdminRepository } from "../../../../contracts/repository/admin";
 import { IAccountRepository } from "../../../../contracts/repository/account";
 
-export class CreateAdminUseCase {
+export class CreateFirstAdminUseCase {
   constructor(
     private readonly adminRepo: IAdminRepository,
     private readonly accountRepo: IAccountRepository,
