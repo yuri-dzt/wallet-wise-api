@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "dev": "ts-node-dev --respawn --transpile-only src/infra/server.ts",
+    "build": "prisma db push --accept-data-loss && prisma generate && tsc"
   },
   "keywords": [],
   "author": "",
