@@ -61,7 +61,7 @@ O projeto foi estruturado para facilitar manutenção, testes e evolução futur
 1️⃣ Clonar o repositório
 ```bash
 git clone https://github.com/yuri-dzt/wallet-wise-api.git
-cd walletwise
+cd wallet-wise-api
 ```
 
 2️⃣ Instalar dependências
