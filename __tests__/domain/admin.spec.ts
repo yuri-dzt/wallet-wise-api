@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { Admin } from "../../../src/domain/entities/admin";
+import { Admin } from "../../src/domain/entities/admin";
 
 describe('Admin', () => {
   describe('create', () => {
