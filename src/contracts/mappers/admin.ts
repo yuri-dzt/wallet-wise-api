@@ -6,7 +6,7 @@ export type PersistenceAdmin = {
   name: string;
   email: string;
   password: string;
-  permission: number;
+  permission: bigint;
   created_at: bigint;
   updated_at: bigint | null;
 };
@@ -18,7 +18,7 @@ export class AdminMapper {
       name: entity.name,
       email: entity.email,
       password: entity.password,
-      permission: entity.permission,
+      permission: BigInt(entity.permission),
       created_at: BigInt(entity.created_at),
       updated_at: entity.updated_at ? BigInt(entity.updated_at) : null
     }
@@ -27,6 +27,7 @@ export class AdminMapper {
   static toDomain(persistenceEntity: PersistenceAdmin): Admin {
     return new Admin({
       ...persistenceEntity,
+      permission: Number(persistenceEntity.permission),
       created_at: Number(persistenceEntity.created_at),
       updated_at: persistenceEntity.updated_at ? Number(persistenceEntity.updated_at) : undefined
     });

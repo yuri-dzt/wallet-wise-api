@@ -12,7 +12,7 @@ model Admin {
   name       String
   email      String  @unique
   password   String
-  permission String 
+  permission BigInt 
   created_at BigInt
   updated_at BigInt?
 
@@ -46,8 +46,8 @@ model User {
   name       String
   email      String @unique
   password   String
-  token      String
-  active     Boolean
+  token      String? @unique
+  active     Boolean?
   created_at BigInt
   updated_at BigInt?
 
