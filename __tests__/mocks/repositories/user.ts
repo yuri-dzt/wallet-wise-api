@@ -30,4 +30,8 @@ export class InMemoryUserRepository implements IUserRepository {
   async getAll(props?: GetUsersDto): Promise<User[]> {
     return this.users;
   }
+
+  async findByToken(token: string): Promise<User | undefined> {
+    return this.users.find(c => c.token === token);
+  }
 }

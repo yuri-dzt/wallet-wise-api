@@ -6,6 +6,7 @@ export const makeUser = (override?: Partial<CreateUserProps>) => {
     email: "user@gmail.com",
     name: "User",
     password: "1234",
+    token: "token",
     ...override,
   });
 };

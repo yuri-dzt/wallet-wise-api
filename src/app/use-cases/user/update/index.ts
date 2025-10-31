@@ -2,7 +2,6 @@ import { UpdateUserDto } from "./dto";
 import { UpdateUserUseCaseError } from "./error";
 import { IUserDto } from "../../../../contracts/dtos/user";
 import { UserMapper } from "../../../../contracts/mappers/user";
-import { IHashService } from "../../../../contracts/services/hash";
 import { IUserRepository } from "../../../../contracts/repository/user";
 import { IAccountRepository } from "../../../../contracts/repository/account";
 
@@ -10,7 +9,6 @@ export class UpdateUserUseCase {
   constructor(
     private readonly userRepo: IUserRepository,
     private readonly accountRepo: IAccountRepository,
-    private readonly hashService: IHashService,
   ) { }
 
   async execute(props: UpdateUserDto): Promise<IUserDto | UpdateUserUseCaseError> {
@@ -31,11 +29,6 @@ export class UpdateUserUseCase {
         } else {
           userExist.updateEmail(props.email);
         }
-      }
-
-      if (props.password) {
-        const hashedPassword = await this.hashService.hash(props.password);
-        userExist.updatePassword(hashedPassword);
       }
 
       await this.userRepo.update(userExist);
