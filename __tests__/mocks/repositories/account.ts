@@ -29,7 +29,7 @@ export class InMemoryAccountRepository implements IAccountRepository {
     } else if (existUser) {
       account_id = existUser.id;
       account_password = existUser.password;
-      account_type = 'analyst' as AccountType;
+      account_type = 'user' as AccountType;
     } else {
       return;
     }

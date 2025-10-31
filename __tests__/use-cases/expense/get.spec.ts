@@ -1,6 +1,6 @@
 import { describe, beforeEach, it, expect } from "vitest";
 
-import { makeExpense } from "../../factories/entities/expenses";
+import { makeExpense } from "../../factories/entities/expense";
 import { GetExpensesUseCase } from "../../../src/app/use-cases/expense/get";
 import { InMemoryExpenseRepository } from "../../mocks/repositories/expense";
 
