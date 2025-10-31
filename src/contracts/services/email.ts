@@ -5,4 +5,5 @@ export interface ResetPasswordProps {
 
 export interface IEmailService {
   resetPassword(props: ResetPasswordProps): Promise<void>;
+  activeAccount(email: string): Promise<void>;
 }
