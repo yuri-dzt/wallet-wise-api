@@ -36,6 +36,10 @@ export class UpdateAdminUseCase {
         adminExists.updatePassword(hashedPassword);
       }
 
+      if (props.permission) {
+        adminExists.updatePermission(props.permission);
+      }
+
       await this.adminRepo.update(adminExists);
       return AdminMapper.toDto(adminExists);
     } catch {

@@ -27,4 +27,8 @@ export class Admin extends Account<IAdmin> {
       permission: props.permission
     })
   }
+
+  updatePermission(permission: number) {
+    this.props.permission = permission;
+  }
 }
