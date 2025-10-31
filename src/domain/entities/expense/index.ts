@@ -5,6 +5,7 @@ export interface ExpenseProps {
   user_id: string;
   category_id: string;
   date: number;
+  price: number;
   created_at: number;
   updated_at?: number;
 }
@@ -30,6 +31,10 @@ export class Expense {
     return this.props.date;
   }
 
+  get price() {
+    return this.props.price;
+  }
+
   get created_at() {
     return this.props.created_at;
   }
@@ -49,14 +54,10 @@ export class Expense {
       user_id: props.user_id,
       category_id: props.category_id,
       date: props.date,
+      price: props.price,
       updated_at: props.updated_at,
       created_at: props.created_at || Date.now(),
     };
-  }
-
-  public updateCategory(category_id: string) {
-    this.props.category_id = category_id;
-    this.props.updated_at = Date.now()
   }
 
   public updateDate(date: number) {
@@ -64,8 +65,18 @@ export class Expense {
     this.props.updated_at = Date.now()
   }
 
-  public updateUserId(user_id: string) {
+  public updatePrice(price: number) {
+    this.props.price = price;
+    this.props.updated_at = Date.now()
+  }
+
+  public updateUser(user_id: string) {
     this.props.user_id = user_id;
+    this.props.updated_at = Date.now()
+  }
+
+  public updateCategory(category_id: string) {
+    this.props.category_id = category_id;
     this.props.updated_at = Date.now()
   }
 }
