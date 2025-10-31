@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id         String  @id @unique
+  name       String
+  email      String  @unique
+  password   String
+  permission String 
+  created_at BigInt
+  updated_at BigInt?
+
+  @@map("admins")
+}
+
+model Category {
+  id          String @id @unique
+  name        String
+  description String?
+  created_at  BigInt
+  updated_at  BigInt?
+
+  @@map("categories")
+}
+
+model Expense {
+  id          String @id @unique
+  user_id     String
+  category_id String
+  date        BigInt
+  price       BigInt
+  created_at  BigInt
+  updated_at  BigInt?
+
+  @@map("expenses")
+}
+
+model User {
+  id         String @id @unique
+  name       String
+  email      String @unique
+  password   String
+  token      String
+  active     Boolean
+  created_at BigInt
+  updated_at BigInt?
+
+  @@map("users")
+}
